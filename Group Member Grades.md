@@ -1,5 +1,5 @@
-| Member Name      | Activity No. | Grade |
-|------------------|--------------|-------|
-| Hilis, John Caleb A.      | 1            | Leader    |
-|   Clemente, Ann Margaret   | 1            | 90    |
-| Sunga, John Eduard Cornelio | 1            | 92    |
+| Activity No.    |  Hilis, John Caleb A. | Clemente, Ann Margaret | Sunga, John Eduard Cornelio |
+|-----------------|-----------------------|------------------------|-----------------------------|
+|1                |100                    |Leader                  |99                           |
+|2                |Leader                 |99                      |98                           |
+
