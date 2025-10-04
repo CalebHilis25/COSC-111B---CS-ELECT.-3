@@ -1,34 +1,39 @@
-int pins[] = {12, 11, 10, 9, 8};
-int numPins = sizeof(pins) / sizeof(pins[0]);
-int maxBrightness = 255;
-int minBrightness = 0;
+int leds[] = {12, 11, 10, 9, 8};  
+int led = 0;
+int brightness = 0;
 
 void setup() {
-  for (int a = 0; a < numPins; a++) {
-    pinMode(pins[a], OUTPUT);
+  
+  led = 0;
+  while (led < 5) {
+    pinMode(leds[led], OUTPUT);
+    led++;
   }
 }
 
 void loop() {
- 
-  for (int a = 0; a < numPins; a++) {
-    for (int brightness = minBrightness; brightness <= maxBrightness; brightness += 5) {
-      analogWrite(pins[a], brightness);
-      delay(20);
+  
+  led = 0;
+  while (led < 5) {
+    brightness = 0;
+    while (brightness <= 255) {
+      analogWrite(leds[led], brightness);
+      brightness++;
+      delay(3);
     }
     delay(1000);
+    led++;  
   }
-  
-  delay(500);
-  
- 
-  for (int a = 0; a < numPins; a++) {
-    for (int brightness = maxBrightness; brightness >= minBrightness; brightness -= 5) {
-      analogWrite(pins[a], brightness);
-      delay(20);
+
+  led = 0;
+  while (led < 5) {
+    brightness = 255;
+    while (brightness >= 0) {
+      analogWrite(leds[led], brightness);
+      brightness--;
+      delay(3);
     }
     delay(1000);
+    led++;  
   }
-  
-  delay(500);
 }
