@@ -1,5 +1,5 @@
 int pins[] = {12, 11, 10, 9, 8};
-int numPins = sizeof(pins) / sizeof(pins[0]); // Correct way to get array length
+int numPins = sizeof(pins) / sizeof(pins[0]);
 int maxBrightness = 255;
 int minBrightness = 0;
 
