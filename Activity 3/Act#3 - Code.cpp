@@ -17,26 +17,31 @@ void setup() {
 void loop() {
   float temp = getTemp();
   int light = analogRead(LDR_PIN);
+  int lightMapped = map(light, 0, 1035, 0, 255);
+  
 
-  Serial.print("T: ");
+  Serial.print("Temperature: ");
   Serial.print(temp);
-  Serial.print(" °C | L: ");
-  Serial.println(light);
-
-  // Fire detected: both LED and buzzer blink together
-  if (temp >= TEMP_THRESHOLD && light >= LIGHT_THRESHOLD) {
+  Serial.print(" °C | Brightness: ");
+  Serial.println(lightMapped);
+  
+  
+  if (temp >= TEMP_THRESHOLD && lightMapped >= LIGHT_THRESHOLD) {
+    Serial.println("Fire Detected");
     digitalWrite(LED_PIN, HIGH);
-    delay(100);
+    delay(1000);
     digitalWrite(LED_PIN, LOW);
-    delay(100);
+    delay(1000);
+  
   } else {
     digitalWrite(LED_PIN, LOW);
+    delay(1000);
   }
 }
 
 float getTemp() {
-  int adc = analogRead(THERMISTOR_PIN);
-  float r = (1023.0 / adc - 1.0) * SERIES_RESISTOR;
-  float t = 1.0 / ((log(r / SERIES_RESISTOR) / BETA) + (1.0 / ROOM_TEMP));
-  return t - 273.15;  
+  int readTemp = analogRead(THERMISTOR_PIN);
+  float resistance = (1023.0 / readTemp - 1.0) * SERIES_RESISTOR;
+  float temp = 1.0 / ((log(resistance / SERIES_RESISTOR) / BETA) + (1.0 / ROOM_TEMP));
+  return temp - 273.15;  
 }
