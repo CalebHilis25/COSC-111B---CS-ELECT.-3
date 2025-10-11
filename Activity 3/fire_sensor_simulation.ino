@@ -17,7 +17,7 @@ void setup() {
 void loop() {
   float temp = getTemp();
   int light = analogRead(LDR_PIN);
-  int lightMapped = map(light, 0, 1035, 0, 255);
+  int lightMapped = map(light, 0, 1023, 0, 255);
   
 
   Serial.print("Temperature: ");
