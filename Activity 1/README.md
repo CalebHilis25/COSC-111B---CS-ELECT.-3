@@ -11,7 +11,7 @@ Objectives
 
 - Learn how to control digital output pins using Arduino
 
-**Hardware Used
+Hardware Used
 - Arduino Uno
 - 5 LEDs
 - Resistors
