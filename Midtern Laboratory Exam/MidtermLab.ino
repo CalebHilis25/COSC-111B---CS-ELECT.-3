@@ -45,7 +45,7 @@ void readLDR() {
 // ======= LED LOGIC UPDATED =======
 void updateLEDs() {
 
-  // ✅ AUTO MODE — RED LED now lights at 71–100%
+  // AUTO MODE — RED LED now lights at 71–100%
   if (AUTO_MODE) {
     if (LDR_PERCENT <= 40) {
       ENVIRONMENT_STATUS = "Cloudy";
@@ -60,7 +60,7 @@ void updateLEDs() {
       digitalWrite(LED_RED, LOW);
     }
     else {  
-      // ✅ 71% to 100%
+      // 71% to 100%
       ENVIRONMENT_STATUS = "Clear";
       digitalWrite(LED_GREEN, LOW);
       digitalWrite(LED_YELLOW, LOW);
@@ -68,7 +68,7 @@ void updateLEDs() {
     }
   }
 
-  // ✅ MANUAL MODE (unchanged)
+  // MANUAL MODE (unchanged)
   else {
     if (LDR_PERCENT <= THRESHOLD_LOW) {
       digitalWrite(LED_GREEN, HIGH);
